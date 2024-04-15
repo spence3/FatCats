@@ -1,0 +1,37 @@
+[
+    {
+        "name": "fido",
+        "sex": "male",
+        "age": 4,
+        "breed": "mutt",
+        "size": "M"
+    },
+    {
+        "name": "rocky",
+        "sex": "female",
+        "age": 13,
+        "breed": "corgi",
+        "size": "S"
+    },
+    {
+        "name": "doggo",
+        "sex": "male",
+        "age": 5,
+        "breed": "human",
+        "size": "XXL"
+    },
+    {
+        "name": "stew",
+        "sex": "male",
+        "age": 20,
+        "breed": "rot",
+        "size": "L"
+    },
+    {
+        "name": "zeb",
+        "sex": "female",
+        "age": 7,
+        "breed": "lab",
+        "size": "XL"
+    }
+]

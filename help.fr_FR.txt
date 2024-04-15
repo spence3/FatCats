@@ -1,0 +1,12 @@
+-p, --path valeur, le nom de chemin relatif ou absolu d'un fichier ou d'un répertoire. La valeur par défaut est -p .
+-s, --sort alpha | étendre | taille
+   alpha trie par ordre alphabétique (croissant)
+   exten trie par extension par ordre alphabétique (croissant)
+   size trie par taille (décroissant)
+   La valeur par défaut n'est pas triée
+-m, --metric, tailles affichées en Ko, Mo, Go et To au lieu d'octets.
+-t, --threshold min, affiche uniquement les fichiers et dossiers d'une taille au moins minimale.
+-h, --help imprime cet écran d'utilisation. Ignore tous les autres arguments.
+-lang, valeur --langue, abréviation de langue à 2 lettres (ISO 639-1). la valeur par défaut est en.
+-loc, valeur --locale, abréviation du pays à 2 lettres (ISO 3166-2). La valeur par défaut est les États-Unis.
+-c, valeur --config, le nom de chemin relatif ou absolu du fichier de configuration. la valeur par défaut est ./config.json.

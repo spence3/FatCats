@@ -1,0 +1,12 @@
+-p, --path, el nombre de ruta relativa o absoluta de un archivo o directorio. El valor predeterminado es -p.
+-s, --sort alfa | extender | tamaño
+   orden alfabético (ascendente)
+   exten ordena por extensión alfabéticamente (ascendente)
+   tamaño ordena por tamaño (descendente)
+   El valor predeterminado no está ordenado
+-m, --metric, los tamaños se muestran como KB, MB, GB y TB en lugar de bytes.
+-t, --threshold min, solo muestra archivos y carpetas de al menos un tamaño mínimo.
+-h, --help imprime esta pantalla de uso. Ignora todos los demás argumentos.
+-lang, --language de idioma, abreviatura de idioma de 2 letras (ISO 639-1). El valor predeterminado es en.
+-loc, --locale, abreviatura de país de 2 letras (ISO 3166-2). El valor predeterminado es EE. UU.
+-c, --config valor, el nombre de ruta relativa o absoluta del archivo de configuración. El valor predeterminado es ./config.json.

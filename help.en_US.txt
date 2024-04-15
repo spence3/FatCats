@@ -1,0 +1,12 @@
+-p, --path value, the relative or absolute path name of a file or directory. Default is -p .
+-s, --sort alpha | exten | size 
+  alpha sorts alphabetically (ascending)
+  exten sorts by extension alphabetically (ascending)
+  size sorts by size (descending)
+  Default is unsorted
+-m, --metric, sizes displayed as KB, MB, GB, and TB instead of bytes.
+-t, --threshold min, only displays files and folders of at least minimum size.
+-h, --help prints this usage screen. Ignores all other arguments.
+-lang, --language value, 2-letter language abbreviation (ISO 639-1). default is en.
+-loc, --locale value, 2-letter country abbreviation (ISO 3166-2). Default is US.
+-c, --config value, the relative or absolute path name of the configuration file. default is ./config.json.
