@@ -1,15 +1,14 @@
-const  { execSync } = require('child_process')
+'use strict'
 const needPath = require('path')
 const filesize = require('filesize');
-const { partial } = require('lodash');
-const fileSizeFormatter = partial(filesize, {base: 2, standard: 'jedec'});
 
-'use strict'
+
+
 const fs = require('fs')
 
 //global flags
-path = '.'
-setPath = false
+let path = '.'
+let setPath = false
 let sortTree = compareFileByDefault
 let numberFormatter = commaSize//metric
 let threshold = 0
@@ -67,21 +66,21 @@ function setFlags() {
   }
 }
 
-function BuildTree(dir, path) {
+function BuildTree(dir) {
   //base case
   const children = (fs.readdirSync(dir.name))
   for (const child of children)  {
       const relativePath = `${dir.name}/${child}`
+      //path: ./.git/hooks
+      //dir.name: ./.git/hooks
       const stats = fs.statSync(relativePath)
       if(stats.isDirectory()) {
-          console.log(`${child}/`)
+          // console.log(`${child}/`)
           const tempDir = BuildTree( {
-              name: child,
+              name: relativePath,
               size: 0,
               children:[]
-          }, 
-              relativePath
-          )
+          })
           dir.children.push(tempDir)
       }
       else if(stats.isFile) {
@@ -112,10 +111,6 @@ function roundSize(size) {//1 or 4096
   return Math.ceil(size/blocksize) * blocksize
 }
 
-function printPath(name) {
-  if(setPath && path === name) return absolutePath = needPath.resolve(path)
-  return name
-}
 
 //sort comparators utils
 const compareNums = (a, b) => b - a
@@ -153,10 +148,10 @@ function printTree(tree) {
   let  {name, size, children} = tree
 
   if(children) {
-   if(size >= threshold) console.group(`${printPath(name)}/ ${numberFormatter(size)}`)
+   if(size >= threshold) console.group(`${name}/ ${numberFormatter(size)}`)
   }
   else {
-    if(size >= threshold) console.group(`${printPath(name)} ${numberFormatter(size)}`)
+    if(size >= threshold) console.group(`${name} ${numberFormatter(size)}`)
   }
   if(children) {//for directories and subdirectories
     for(let child of children) {
@@ -182,7 +177,7 @@ function main() {
   }
 
   //file directory
-  let tree = BuildTree(root, '.')
+  let tree = BuildTree(root)
 
   // OUTPUT
   printTree(tree)
