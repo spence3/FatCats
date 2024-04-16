@@ -1,6 +1,6 @@
 'use strict'
 const needPath = require('path')
-const filesize = require('filesize');
+const filesize = require('filesize')
 
 
 
@@ -23,8 +23,8 @@ function usage() { //used after v0.2
 function setFlags() {
   const args = process.argv.slice(2)
   for(let i = 0; i < args.length; i++) {
-    args[i] === '-h' || args[i] ==='--help' ? usage() : null//help flag
-    block = args[i] === '-b' || args[i] ==='--blocksize' && true//blocksize is true if -b, else default
+    args[i] === '-h' || args[i] ==='--help' ? usage() : null
+    block = args[i] === '-b' || args[i] ==='--blocksize' && true
 
     if(args[i] === '-p' || args[i] === '--path'){
       if(args[i+1]){
@@ -71,8 +71,6 @@ function BuildTree(dir) {
   const children = (fs.readdirSync(dir.name))
   for (const child of children)  {
       const relativePath = `${dir.name}/${child}`
-      //path: ./.git/hooks
-      //dir.name: ./.git/hooks
       const stats = fs.statSync(relativePath)
       if(stats.isDirectory()) {
           // console.log(`${child}/`)
@@ -96,16 +94,17 @@ function BuildTree(dir) {
 }
 
 function metricSize(size) {
-  return filesize(size, { base: 2, standard: 'jedec' });
+  return filesize(size, { base: 2, standard: 'jedec' })
 }
 
 function commaSize(size) {
   //change size in the roundsize function
   size = roundSize(size)
-  return `${size.toLocaleString()} bytes` //change this
+  return `${size.toLocaleString()} bytes`
 }
 
-function roundSize(size) {//1 or 4096
+//1 or 4096
+function roundSize(size) {
   const blocksize = 4096
   if(!block) return size
   return Math.ceil(size/blocksize) * blocksize
@@ -153,7 +152,8 @@ function printTree(tree) {
   else {
     if(size >= threshold) console.group(`${name} ${numberFormatter(size)}`)
   }
-  if(children) {//for directories and subdirectories
+  //for directories and subdirectories
+  if(children) {
     for(let child of children) {
       printTree(child)
       console.groupEnd()
@@ -170,7 +170,6 @@ function main() {
 
   // PROCESS
   const root = {
-    //name: '.',
     name: path,
     children:[],
     size: 0
